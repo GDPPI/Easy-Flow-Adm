@@ -75,7 +75,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(color: Color(0xFFD4D4D4))),
-                  contentPadding: const EdgeInsets.all(0),
+                  contentPadding: const EdgeInsets.all(10),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
@@ -83,7 +83,6 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   errorStyle: const TextStyle(
                     fontFamily: 'Segoe_UI',
                   ),
-    
                   prefixIcon: widget.prefixIcon,
                   suffixIcon: widget.security == true
                       ? GestureDetector(
