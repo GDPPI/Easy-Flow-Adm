@@ -1,3 +1,4 @@
+import 'package:easyflow/layers/modules/initial/data_representatives.dart';
 import 'package:easyflow/layers/modules/initial/widgets/card_annoumencements_widget.dart';
 import 'package:easyflow/layers/modules/initial/widgets/text_form_widget.dart';
 import 'package:easyflow/layers/modules/initial/widgets/tite_representative.dart';
@@ -26,24 +27,28 @@ class InitialPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(child: TextFormWidget(text: "Comunicados")),
-                    Row(
-                      children: [
-                        SizedBox(
-                          height: 300,
-                          width: p1.maxWidth,
-                          child: GridView.builder(
-                            scrollDirection: Axis.horizontal,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 1,
-                              mainAxisExtent: 325,
-                              mainAxisSpacing: 16,
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            height: 300,
+                            width: p1.maxWidth,
+                            child: GridView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 5,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 1,
+                                mainAxisExtent: 325,
+                                mainAxisSpacing: 16,
+                              ),
+                              itemBuilder: (context, index) =>
+                                  CardAnnoumencementsWidget(),
                             ),
-                            itemBuilder: (context, index) =>
-                                CardAnnoumencementsWidget(),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     TextFormWidget(text: "Representantes"),
                     Row(
@@ -54,8 +59,10 @@ class InitialPage extends StatelessWidget {
                           width: p1.maxWidth,
                           child: GridView.builder(
                             itemBuilder: (context, index) =>
-                                TileRepresentativeWidget(),
-                            itemCount: 10,
+                                TileRepresentativeWidget(
+                              representante: representativesData[index],
+                            ),
+                            itemCount: representativesData.length,
                             scrollDirection: Axis.horizontal,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(

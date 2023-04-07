@@ -1,9 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easyflow/layers/data/model/representatives_model.dart';
 import 'package:easyflow/layers/modules/initial/widgets/subtitle_widget.dart';
 import 'package:flutter/material.dart';
 
 class TileRepresentativeWidget extends StatelessWidget {
-  const TileRepresentativeWidget({super.key});
+  final RepresentativesModel representante;
+  const TileRepresentativeWidget({super.key, required this.representante});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +23,7 @@ class TileRepresentativeWidget extends StatelessWidget {
                   "assets/images/collab_bro_image.png",
                 ),
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                  "https://classic.exame.com/wp-content/uploads/2018/10/brad-pitt-britain-allied-premiere.jpg?quality=70&strip=info&w=1017",
-                ),
+                image: AssetImage(representante.imageUrl),
                 imageErrorBuilder: (context, error, stackTrace) {
                   return const Image(
                     image: AssetImage(
@@ -56,7 +56,7 @@ class TileRepresentativeWidget extends StatelessWidget {
                         SizedBox(
                           width: 150,
                           child: AutoSizeText(
-                            "Mário Jamisson",
+                            representante.name,
                             maxLines: 1,
                             maxFontSize: 14,
                             style: const TextStyle(
@@ -83,7 +83,7 @@ class TileRepresentativeWidget extends StatelessWidget {
                             SizedBox(
                               width: 70,
                               child: Text(
-                                "Games",
+                                representante.area,
                                 style: const TextStyle(
                                   fontSize: 10,
                                   color: Color(0xFF0085FF),
@@ -99,12 +99,12 @@ class TileRepresentativeWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 0.0, bottom: 1),
                       child: SubtitleWidget(
-                        text: "rubensabraao@gmail.com",
+                        text: representante.email,
                         icon: Icons.email_outlined,
                       ),
                     ),
                     SubtitleWidget(
-                      text: "Segunda-Feira. Turno Manha",
+                      text: representante.turn,
                       icon: Icons.alarm,
                     )
                   ],
