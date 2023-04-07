@@ -39,7 +39,7 @@ class TextFormWidget extends StatelessWidget {
           padding: const EdgeInsets.only(left: 16),
           child: SizedBox(
             height: 40,
-            width: 170,
+            width: 150,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -54,7 +54,8 @@ class TextFormWidget extends StatelessWidget {
               ),
             ),
           ),
-        )
+        ),
+        Expanded(child: Container())
       ],
     );
   }

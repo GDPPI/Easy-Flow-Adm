@@ -33,35 +33,45 @@ class _InitialPageState extends State<InitialPage> {
                     Row(
                       children: [
                         SizedBox(
-                          width: p1.maxWidth,
                           height: 300,
-                          child: ListView.builder(
-                            physics: BouncingScrollPhysics(),
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) =>
-                                CardAnnoumencementsWidget(),
-                            itemCount: 5,
+                          width: MediaQuery.of(context).size.width,
+                          child: GridView(
+                            physics: PageScrollPhysics(),
                             scrollDirection: Axis.horizontal,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 1,
+                            ),
+                            children: List.generate(
+                              9,
+                              (index) => CardAnnoumencementsWidget(),
+                            ),
                           ),
                         )
                       ],
                     ),
                     TextFormWidget(text: "Representantes"),
-                    Container(
-                      padding: const EdgeInsets.only(top: 23),
-                      height: p1.minHeight * 0.4,
-                      width: p1.maxWidth,
-                      child: GridView.builder(
-                        itemBuilder: (context, index) =>
-                            TileRepresentativeWidget(),
-                        itemCount: 5,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          mainAxisExtent: 60,
-                          crossAxisCount: 3,
-                          mainAxisSpacing: 12,
-                          crossAxisSpacing: 12,
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(top: 23),
+                          height: 220,
+                          width: MediaQuery.of(context).size.width * 0.99,
+                          child: GridView.builder(
+                            itemBuilder: (context, index) =>
+                                TileRepresentativeWidget(),
+                            itemCount: 15,
+                            scrollDirection: Axis.horizontal,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 20,
+                              crossAxisCount: 3,
+                              mainAxisExtent: 325,
+                              crossAxisSpacing: 12,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     )
                   ],
                 ),
