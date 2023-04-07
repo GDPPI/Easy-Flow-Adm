@@ -11,7 +11,7 @@ class TextFormWidget extends StatelessWidget {
       children: [
         Container(
           height: 40,
-          width: 327,
+          width: 322,
           child: TextFormField(
             textAlign: TextAlign.left,
             decoration: InputDecoration(
@@ -36,7 +36,7 @@ class TextFormWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 22),
           child: SizedBox(
             height: 40,
             width: 150,

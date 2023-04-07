@@ -13,7 +13,7 @@ class TileRepresentativeWidget extends StatelessWidget {
         children: [
           SizedBox(
             height: 50,
-            width: 44.0,
+            width: 45.0,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: FadeInImage(
@@ -24,13 +24,20 @@ class TileRepresentativeWidget extends StatelessWidget {
                 image: NetworkImage(
                   "https://classic.exame.com/wp-content/uploads/2018/10/brad-pitt-britain-allied-premiere.jpg?quality=70&strip=info&w=1017",
                 ),
+                imageErrorBuilder: (context, error, stackTrace) {
+                  return const Image(
+                    image: AssetImage(
+                      "assets/images/collab_bro_image.png",
+                    ),
+                  );
+                },
               ),
             ),
           ),
           Container(
             padding: EdgeInsets.only(left: 5),
             height: 60,
-            width: 270,
+            width: 275,
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),

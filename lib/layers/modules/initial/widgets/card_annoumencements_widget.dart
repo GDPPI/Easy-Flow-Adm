@@ -10,10 +10,11 @@ class CardAnnoumencementsWidget extends StatelessWidget {
       height: 260,
       padding: const EdgeInsets.only(
         top: 14,
-        right: 16,
         bottom: 37,
+        right: 0,
+        left: 0,
       ),
-      width: 327,
+      width: 325,
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(
@@ -25,7 +26,7 @@ class CardAnnoumencementsWidget extends StatelessWidget {
             vertical: 8,
           ),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

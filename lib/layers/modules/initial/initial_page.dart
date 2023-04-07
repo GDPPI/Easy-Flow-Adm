@@ -3,14 +3,9 @@ import 'package:easyflow/layers/modules/initial/widgets/text_form_widget.dart';
 import 'package:easyflow/layers/modules/initial/widgets/tite_representative.dart';
 import 'package:flutter/material.dart';
 
-class InitialPage extends StatefulWidget {
+class InitialPage extends StatelessWidget {
   const InitialPage({super.key});
 
-  @override
-  State<InitialPage> createState() => _InitialPageState();
-}
-
-class _InitialPageState extends State<InitialPage> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -26,6 +21,7 @@ class _InitialPageState extends State<InitialPage> {
               ),
               child: SingleChildScrollView(
                 child: Column(
+                  mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -34,20 +30,19 @@ class _InitialPageState extends State<InitialPage> {
                       children: [
                         SizedBox(
                           height: 300,
-                          width: MediaQuery.of(context).size.width,
-                          child: GridView(
-                            physics: PageScrollPhysics(),
+                          width: p1.maxWidth,
+                          child: GridView.builder(
                             scrollDirection: Axis.horizontal,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 1,
+                              mainAxisExtent: 325,
+                              mainAxisSpacing: 16,
                             ),
-                            children: List.generate(
-                              9,
-                              (index) => CardAnnoumencementsWidget(),
-                            ),
+                            itemBuilder: (context, index) =>
+                                CardAnnoumencementsWidget(),
                           ),
-                        )
+                        ),
                       ],
                     ),
                     TextFormWidget(text: "Representantes"),
@@ -56,18 +51,18 @@ class _InitialPageState extends State<InitialPage> {
                         Container(
                           padding: const EdgeInsets.only(top: 23),
                           height: 220,
-                          width: MediaQuery.of(context).size.width * 0.99,
+                          width: p1.maxWidth,
                           child: GridView.builder(
                             itemBuilder: (context, index) =>
                                 TileRepresentativeWidget(),
-                            itemCount: 15,
+                            itemCount: 10,
                             scrollDirection: Axis.horizontal,
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                              mainAxisSpacing: 20,
+                              mainAxisSpacing: 16,
                               crossAxisCount: 3,
                               mainAxisExtent: 325,
-                              crossAxisSpacing: 12,
+                              crossAxisSpacing: 10,
                             ),
                           ),
                         ),
