@@ -14,12 +14,10 @@ class InitialPage extends StatelessWidget {
         return Scaffold(
           body: SafeArea(
             child: Container(
+              alignment: Alignment.centerLeft,
               height: p1.maxHeight,
               width: double.infinity,
-              alignment: Alignment.bottomCenter,
-              padding: const EdgeInsets.symmetric(
-                vertical: 40,
-              ),
+              padding: const EdgeInsets.only(bottom: 20),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -51,29 +49,32 @@ class InitialPage extends StatelessWidget {
                       ),
                     ),
                     TextFormWidget(text: "Representantes"),
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.only(top: 23),
-                          height: 220,
-                          width: p1.maxWidth,
-                          child: GridView.builder(
-                            itemBuilder: (context, index) =>
-                                TileRepresentativeWidget(
-                              representante: representativesData[index],
-                            ),
-                            itemCount: representativesData.length,
-                            scrollDirection: Axis.horizontal,
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              mainAxisSpacing: 16,
-                              crossAxisCount: 3,
-                              mainAxisExtent: 325,
-                              crossAxisSpacing: 10,
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(top: 23),
+                            height: 220,
+                            width: p1.maxWidth,
+                            child: GridView.builder(
+                              itemBuilder: (context, index) =>
+                                  TileRepresentativeWidget(
+                                representante: representativesData[index],
+                              ),
+                              itemCount: representativesData.length,
+                              scrollDirection: Axis.horizontal,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                mainAxisSpacing: 16,
+                                crossAxisCount: 3,
+                                mainAxisExtent: 325,
+                                crossAxisSpacing: 10,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     )
                   ],
                 ),
