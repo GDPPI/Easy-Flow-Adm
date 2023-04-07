@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-class TextFormWidget extends StatelessWidget {
+class TextFormInitialWidget extends StatelessWidget {
   final String text;
-  const TextFormWidget({super.key, required this.text});
+  final TextEditingController controller;
+  const TextFormInitialWidget(
+      {super.key, required this.text, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +15,7 @@ class TextFormWidget extends StatelessWidget {
           height: 40,
           width: 322,
           child: TextFormField(
+            controller: controller,
             textAlign: TextAlign.left,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
