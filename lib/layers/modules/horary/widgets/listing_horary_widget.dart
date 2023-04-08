@@ -60,87 +60,87 @@ class ListingHoraryWidget extends StatelessWidget {
         ),
         Expanded(
           child: ListView.separated(
-              padding: EdgeInsets.zero,
-              itemCount: 15,
-              separatorBuilder: (context, index) => Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 5,
-                    ),
-                  ),
-              itemBuilder: (context, index) {
-                return SizedBox(
-                  height: 35,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Container(
-                            color: Get.theme.colorScheme.primary,
-                            child: Center(
-                              child: Text(
-                                NumberFormat("00").format(value),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
+            padding: EdgeInsets.zero,
+            itemCount: 15,
+            separatorBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.symmetric(vertical: 5),
+              );
+            },
+            itemBuilder: (context, index) {
+              return SizedBox(
+                height: 35,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Container(
+                          color: Get.theme.colorScheme.primary,
+                          child: Center(
+                            child: Text(
+                              NumberFormat("00").format(value),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                color: Colors.white,
                               ),
                             ),
                           ),
                         ),
-                        Expanded(
-                          flex: 5,
-                          child: Container(
-                            color: Colors.white,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 3,
-                                  child: Container(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 15),
+                      ),
+                      Expanded(
+                        flex: 5,
+                        child: Container(
+                          color: Colors.white,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(horizontal: 15),
+                                  child: Text(
+                                    "Nome" * 10,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  child: Center(
                                     child: Text(
-                                      "Nome" * 10,
+                                      "Seg",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    child: Center(
-                                      child: Text(
-                                        "Seg",
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  child: Center(
+                                    child: Text(
+                                      "Manhã",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Container(
-                                    child: Center(
-                                      child: Text(
-                                        "Manhã",
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                        )
-                      ],
-                    ),
+                        ),
+                      )
+                    ],
                   ),
-                );
-              }),
+                ),
+              );
+            },
+          ),
         ),
       ],
     );
