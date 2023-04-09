@@ -14,8 +14,8 @@ class CardAnnoumencementsWidget extends StatelessWidget {
         right: 0,
         left: 0,
       ),
-      width: 325,
       child: Card(
+        margin: EdgeInsets.zero,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),

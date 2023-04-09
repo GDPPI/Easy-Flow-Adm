@@ -9,18 +9,15 @@ class TextFormInitialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: MainAxisSize.max,
       children: [
         Container(
           height: 40,
-          width: 322,
+          width: 320,
           child: TextFormField(
             controller: controller,
             textAlign: TextAlign.left,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 20.0,
-              ),
               hintText: text,
               hintStyle: const TextStyle(
                 fontSize: 14,
@@ -39,7 +36,7 @@ class TextFormInitialWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 22),
+          padding: const EdgeInsets.only(left: 16),
           child: SizedBox(
             height: 40,
             width: 150,
@@ -58,7 +55,6 @@ class TextFormInitialWidget extends StatelessWidget {
             ),
           ),
         ),
-        Expanded(child: Container())
       ],
     );
   }

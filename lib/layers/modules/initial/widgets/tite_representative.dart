@@ -39,6 +39,7 @@ class TileRepresentativeWidget extends StatelessWidget {
             height: 60,
             width: 275,
             child: Card(
+              margin: EdgeInsets.symmetric(vertical: 4, horizontal: 0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),

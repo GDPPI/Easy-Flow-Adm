@@ -17,8 +17,7 @@ class InitialPage extends GetView<InitialController> {
             child: Container(
               alignment: Alignment.centerLeft,
               height: p1.maxHeight,
-              width: double.infinity,
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.only(bottom: 20, top: 60),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -43,7 +42,7 @@ class InitialPage extends GetView<InitialController> {
                               gridDelegate:
                                   SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 1,
-                                mainAxisExtent: 325,
+                                mainAxisExtent: 320,
                                 mainAxisSpacing: 16,
                               ),
                               itemBuilder: (context, index) =>
@@ -78,7 +77,7 @@ class InitialPage extends GetView<InitialController> {
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                   mainAxisSpacing: 16,
                                   crossAxisCount: 3,
-                                  mainAxisExtent: 325,
+                                  mainAxisExtent: 320,
                                   crossAxisSpacing: 10,
                                 ),
                               ),
