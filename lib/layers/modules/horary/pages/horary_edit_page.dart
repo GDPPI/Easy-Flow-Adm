@@ -1,6 +1,8 @@
+import 'package:easyflow/core/routes/app_pages.dart';
+import 'package:easyflow/layers/modules/horary/widgets/elevated_button_widget.dart';
 import 'package:easyflow/layers/modules/horary/widgets/horary_tables_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get.dart';
 
 class HoraryEditPage extends StatelessWidget {
   @override
@@ -22,6 +24,16 @@ class HoraryEditPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: ElevatedButtonWidget(
+                        title: "Salvar",
+                        margin: EdgeInsets.only(bottom: 20),
+                        onpressed: () {
+                          Get.toNamed(Routes.HORARY);
+                        },
+                      ),
+                    ),
                     HoraryTablesWidget(
                       title: "Marque as mesas disponíveis",
                       subtitle:
