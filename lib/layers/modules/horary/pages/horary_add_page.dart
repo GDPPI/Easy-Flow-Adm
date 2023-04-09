@@ -1,3 +1,4 @@
+import 'package:easyflow/core/routes/app_pages.dart';
 import 'package:easyflow/layers/modules/horary/horary_controller.dart';
 import 'package:easyflow/layers/modules/horary/widgets/horary_days_widget.dart';
 import 'package:easyflow/layers/modules/horary/widgets/horary_tables_widget.dart';
@@ -29,7 +30,7 @@ class HoraryAddPage extends GetView<HoraryController> {
                       width: 200,
                       padding: EdgeInsets.only(bottom: 20),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () => Get.toNamed(Routes.HORARY),
                         child: Text("Salvar"),
                       ),
                     ),

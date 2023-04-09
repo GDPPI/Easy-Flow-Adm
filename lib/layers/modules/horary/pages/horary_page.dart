@@ -1,6 +1,7 @@
-import 'package:easyflow/core/routes/app_pages.dart';
 import 'package:easyflow/layers/modules/horary/horary_controller.dart';
+import 'package:easyflow/layers/modules/horary/provider/horary_provider.dart';
 import 'package:easyflow/layers/modules/horary/widgets/listing_horary_widget.dart';
+import 'package:easyflow/layers/modules/horary/widgets/titles_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,21 +34,67 @@ class HoraryPage extends GetView<HoraryController> {
                       SizedBox(
                         width: 200,
                         child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Editar mesas"),
+                          onPressed: () {
+                            // Get.toNamed(Routes.HORARY_EDIT_TABLES);
+                          },
+                          child: Text(
+                            "Editar mesas",
+                            style: TextStyle(
+                              fontFamily: "Segoe UI",
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                       SizedBox(
                         width: 200,
                         child: ElevatedButton(
-                          onPressed: () => Get.toNamed(Routes.HORARY_ADD),
-                          child: Text("Adicionar horário"),
+                          onPressed: () {
+                            // Get.toNamed(Routes.HORARY_ADD);
+                          },
+                          child: Text(
+                            "Adicionar horário",
+                            style: TextStyle(
+                              fontFamily: "Segoe UI",
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
+                  TitlesListWidget(),
                   Expanded(
-                    child: ListingHoraryWidget(),
+                    child: Obx(
+                      () => ListView(
+                        children: dummyUsers
+                            .map((e) => ListingHoraryWidget(horary: e))
+                            .where(
+                              (element) =>
+                                  element.horary.day
+                                      .toString()
+                                      .toLowerCase()
+                                      .contains(
+                                        controller.valueDaySelected
+                                            .toString()
+                                            .toLowerCase(),
+                                      ) &&
+                                  element.horary.turn
+                                      .toString()
+                                      .toLowerCase()
+                                      .contains(
+                                        controller.valueTurnSelected
+                                            .toString()
+                                            .toLowerCase(),
+                                      ),
+                            )
+                            .toList(),
+                      ),
+                    ),
                   ),
                 ],
               ),
