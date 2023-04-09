@@ -43,6 +43,7 @@ class HoraryAddPage extends GetView<HoraryController> {
                     title: "Selecione uma mesa",
                     subtitle:
                         "a mesa selecionada é válida pelos dias selecionados",
+                    isEditTable: false,
                   ),
                 ],
               ),

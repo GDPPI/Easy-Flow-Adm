@@ -27,4 +27,7 @@ class HoraryController extends GetxController {
     valueTurnSelected.value = value;
     update();
   }
+
+  
+
 }

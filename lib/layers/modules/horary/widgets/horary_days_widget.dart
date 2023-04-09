@@ -1,10 +1,10 @@
+import 'package:easyflow/layers/modules/horary/horary_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HoraryDaysWidget extends StatelessWidget {
+class HoraryDaysWidget extends GetView<HoraryController> {
   @override
   Widget build(BuildContext context) {
-    final List titles = ["Manhã", "Tarde", "Noite"];
-
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 300,
@@ -54,7 +54,7 @@ class HoraryDaysWidget extends StatelessWidget {
                       ),
                       onPressed: () {},
                       child: Text(
-                        titles[index],
+                        controller.valuesTurns[index],
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(

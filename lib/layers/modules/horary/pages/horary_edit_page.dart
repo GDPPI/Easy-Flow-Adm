@@ -26,6 +26,7 @@ class HoraryEditPage extends StatelessWidget {
                       title: "Marque as mesas disponíveis",
                       subtitle:
                           "a mesa selecionada ficará disponível para o usuário",
+                      isEditTable: true,
                     ),
                   ],
                 ),

@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class HoraryTablesWidget extends StatelessWidget {
   final String title;
   final String subtitle;
+  final bool isEditTable;
 
   const HoraryTablesWidget({
     required this.title,
     required this.subtitle,
+    required this.isEditTable,
   });
 
   @override

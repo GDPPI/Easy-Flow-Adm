@@ -1,3 +1,4 @@
+import 'package:easyflow/core/routes/app_pages.dart';
 import 'package:easyflow/layers/modules/horary/horary_controller.dart';
 import 'package:easyflow/layers/modules/horary/provider/horary_provider.dart';
 import 'package:easyflow/layers/modules/horary/widgets/listing_horary_widget.dart';
@@ -35,7 +36,7 @@ class HoraryPage extends GetView<HoraryController> {
                         width: 200,
                         child: ElevatedButton(
                           onPressed: () {
-                            // Get.toNamed(Routes.HORARY_EDIT_TABLES);
+                            Get.toNamed(Routes.HORARY_EDIT_TABLES);
                           },
                           child: Text(
                             "Editar mesas",
@@ -52,7 +53,7 @@ class HoraryPage extends GetView<HoraryController> {
                         width: 200,
                         child: ElevatedButton(
                           onPressed: () {
-                            // Get.toNamed(Routes.HORARY_ADD);
+                            Get.toNamed(Routes.HORARY_ADD);
                           },
                           child: Text(
                             "Adicionar horário",
