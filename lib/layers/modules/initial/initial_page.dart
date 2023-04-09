@@ -17,13 +17,16 @@ class InitialPage extends GetView<InitialController> {
             child: Container(
               alignment: Alignment.centerLeft,
               height: p1.maxHeight,
-              padding: const EdgeInsets.only(bottom: 20, top: 60),
+              padding: const EdgeInsets.only(bottom: 20),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    SizedBox(
+                      height: p1.maxHeight * 0.12,
+                    ),
                     SizedBox(
                         child: TextFormInitialWidget(
                       text: "Comunicados",
