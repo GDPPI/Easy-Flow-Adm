@@ -18,7 +18,7 @@ class HoraryTablesWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 13, vertical: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: Colors.amber,
+        color: Colors.white,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
