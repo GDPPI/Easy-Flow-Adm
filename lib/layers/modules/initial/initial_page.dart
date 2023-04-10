@@ -15,23 +15,21 @@ class InitialPage extends GetView<InitialController> {
         return Scaffold(
           body: SafeArea(
             child: Container(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.topLeft,
               height: p1.maxHeight,
               padding: const EdgeInsets.only(bottom: 20),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: p1.maxHeight * 0.12,
+                    Container(
+                      padding: const EdgeInsets.only(top: 150),
+                      child: TextFormInitialWidget(
+                        text: "Comunicados",
+                        controller: controller.controllerComunicado,
+                      ),
                     ),
-                    SizedBox(
-                        child: TextFormInitialWidget(
-                      text: "Comunicados",
-                      controller: controller.controllerComunicado,
-                    )),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
@@ -88,6 +86,9 @@ class InitialPage extends GetView<InitialController> {
                           ],
                         ),
                       ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(bottom: 134),
                     ),
                   ],
                 ),
