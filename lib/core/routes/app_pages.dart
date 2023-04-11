@@ -9,7 +9,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 part './app_routes.dart';
 
 abstract class AppPages {
-  static const initialRoute = Routes.LOGIN;
+  static const initialRoute = Routes.EQUIPMENT;
   static final pages = [
     GetPage(
       name: Routes.LOGIN,
