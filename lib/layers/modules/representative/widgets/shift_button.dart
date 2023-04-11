@@ -1,17 +1,21 @@
+import 'package:easyflow/layers/modules/representative/representative_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ShiftButton extends StatelessWidget {
   final String shiftText;
-  final void Function()? onPressed;
+  final bool isSelected;
 
   const ShiftButton({
     required this.shiftText,
-    this.onPressed,
+    required this.isSelected,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.find<RepresentativeController>();
+
     return FilledButton(
       child: Text(
         shiftText,
@@ -19,18 +23,18 @@ class ShiftButton extends StatelessWidget {
           fontFamily: 'Segoe_UI',
           fontSize: 13,
           fontWeight: FontWeight.w400,
-          color: Colors.black,
+          color: isSelected ? Colors.white : Colors.black,
         ),
       ),
-      onPressed: onPressed,
+      onPressed: () => controller.onShiftButtonClicked(shiftText),
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
             10,
           ),
         ),
-        backgroundColor: Color(0XFFD9D9D9),
+        backgroundColor: isSelected ? Colors.blue : Color(0XFFD9D9D9),
       ),
-    );
+    ).marginOnly(right: 10);
   }
 }
