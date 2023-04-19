@@ -5,6 +5,9 @@ part of './app_pages.dart';
 abstract class Routes {
   static const LOGIN = '/login';
   static const HOME = '/home';
+  static const HORARY = '/horary';
+  static const HORARY_ADD = "/horary/add_horary";
+  static const HORARY_EDIT_TABLES = '/horary/edit_tables';
   static const INITIAL_PAGE = '/initial-page';
   static const EQUIPMENT = '/equipment';
   static const EQUIPMENT_ADD = '/equipment_add';

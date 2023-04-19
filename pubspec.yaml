@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   auto_size_text: ^3.0.0
   stylish_dialog: ^1.0.2
+  intl: ^0.18.0
   expandable_text: ^2.3.0
  
 
