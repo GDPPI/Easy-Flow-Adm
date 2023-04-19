@@ -50,4 +50,20 @@ final ThemeData appThemeData = ThemeData(
           fontFamily: 'Poppins', fontSize: 12, fontWeight: FontWeight.w400),
     ),
   ),
+  inputDecorationTheme: InputDecorationTheme(
+    fillColor: Colors.white,
+    filled: true,
+    border: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Color(0xff8B8B8B),
+        width: 2,
+      ),
+    ),
+    hintStyle: TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: Color(0xff8B8B8B),
+    ),
+  ),
 );
