@@ -6,6 +6,8 @@ import 'package:easyflow/layers/modules/equipment/pages/equipment_page.dart';
 import 'package:easyflow/layers/modules/equipment/pages/equipment_add_page.dart';
 import 'package:easyflow/layers/modules/equipment/pages/equipment_requests_page.dart';
 import 'package:easyflow/layers/modules/home/home_page.dart';
+import 'package:easyflow/layers/modules/initial/initial_binding.dart';
+import 'package:easyflow/layers/modules/initial/initial_page.dart';
 import 'package:easyflow/layers/modules/login/login_binding.dart';
 import 'package:easyflow/layers/modules/login/login_page.dart';
 import 'package:easyflow/layers/modules/representative/add_representative_page.dart';
@@ -14,7 +16,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 part './app_routes.dart';
 
 abstract class AppPages {
-  static const initialRoute = Routes.MAIN;
+  static const initialRoute = Routes.INITIAL_PAGE;
   static final pages = [
     GetPage(
       name: Routes.LOGIN,
@@ -26,6 +28,11 @@ abstract class AppPages {
       page: () => HomePage(),
     ),
     GetPage(
+      name: Routes.INITIAL_PAGE,
+      page: () => InitialPage(),
+      binding: InitialBinding(),
+    ),
+GetPage(
       name: Routes.EQUIPMENT,
       page: () => EquipmentPage(),
       binding: EquipmentBinding(),
