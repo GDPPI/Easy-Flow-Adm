@@ -2,6 +2,7 @@
 
 
 import 'package:easyflow/layers/modules/equipment/equipment_binding.dart';
+import 'package:easyflow/layers/modules/equipment/equipments_binding.dart';
 import 'package:easyflow/layers/modules/equipment/pages/equipment_page.dart';
 import 'package:easyflow/layers/modules/equipment/pages/equipment_add_page.dart';
 import 'package:easyflow/layers/modules/equipment/pages/equipment_requests_page.dart';
