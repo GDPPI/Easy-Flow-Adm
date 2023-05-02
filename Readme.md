@@ -53,8 +53,7 @@ Segue abaixo o fluxo da etapa de code review
 - Lucas Pereira - Desenvolvedor 
 - Robson Silva - Desenvolvedor
 - Rafael Castro - Desenvolvedor
-- Julia Evangelisa - Q&A
-- Paulo Vinicius - Q&A
+- Ramses Temotheo - Q&A
 - Raul Pereira - UX/UI
 
 ## Links úteis
