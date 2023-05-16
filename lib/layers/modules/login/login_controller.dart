@@ -20,7 +20,7 @@ class LoginController {
     if (formKey.currentState!.validate()) {
       Dialogs.loading(context);
       try {
-        _authRepository
+        await _authRepository
             .login(AuthRequestModel(
                 login: loginTextController.text,
                 password: passwordTextController.text))
@@ -31,15 +31,14 @@ class LoginController {
           } else {
             Navigator.of(context).pop();
             Dialogs.error(context,
-                    title: 'Permissão negada.',
-                    message:
-                        ' Esta função requer acesso de administrador para ser utilizada. Por favor, entre em contato com o administrador do sistema para obter permissão.')
-                .show();
+                title: 'Permissão negada.',
+                message:
+                    ' Esta função requer acesso de administrador para ser utilizada. Por favor, entre em contato com o administrador do sistema para obter permissão.');
           }
         });
       } on ApiException catch (e) {
         Navigator.of(context).pop();
-        Dialogs.error(context, title: e.title, message: e.message).show();
+        Dialogs.error(context, title: e.title, message: e.message);
       }
     }
   }

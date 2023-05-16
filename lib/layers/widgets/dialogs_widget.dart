@@ -1,14 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:stylish_dialog/stylish_dialog.dart';
+import 'package:get/get_utils/src/platform/platform.dart';
 
 class Dialogs {
-  static StylishDialog? _dialogError;
-
-  static Dialog? loading(context) {
+  static loading(context) {
     showDialog(
       context: context,
       builder: (context) => Dialog(
@@ -20,7 +15,7 @@ class Dialogs {
             SizedBox(
               width: 40,
               height: 40,
-              child: Platform.isIOS
+              child: GetPlatform.isIOS
                   ? CupertinoActivityIndicator(
                       radius: 20, color: Theme.of(context).colorScheme.primary)
                   : CircularProgressIndicator(
@@ -32,7 +27,7 @@ class Dialogs {
             Text(
               'Aguarde...',
               style: TextStyle(
-                  fontFamily: 'poppins',
+                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.bold,
                   fontSize: 14,
                   color: Colors.white),
@@ -43,14 +38,40 @@ class Dialogs {
     );
   }
 
-  static StylishDialog error(context,
-      {required String title, required String message}) {
-    _dialogError ??= StylishDialog(
+  static error(context, {required String title, required String message}) {
+    showDialog(
       context: context,
-      alertType: StylishDialogType.ERROR,
-      title: Text(title),
-      content: Text(message),
+      builder: (context) => AlertDialog(
+        contentPadding: EdgeInsets.all(16),
+        alignment: Alignment.center,
+        icon: const Icon(
+          Icons.error_outline,
+          color: Color(0xFFFF3737),
+          size: 50,
+        ),
+        title: Column(
+          children: [
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600),
+            ),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: const Color(0xFF737373),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400),
+            ),
+          ],
+        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
     );
-    return _dialogError!;
   }
 }
