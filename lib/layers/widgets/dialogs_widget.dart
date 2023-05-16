@@ -59,6 +59,9 @@ class Dialogs {
                   fontSize: 20,
                   fontWeight: FontWeight.w600),
             ),
+            SizedBox(
+              height: 8,
+            ),
             Text(
               message,
               textAlign: TextAlign.center,

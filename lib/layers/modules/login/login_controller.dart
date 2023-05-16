@@ -33,7 +33,7 @@ class LoginController {
             Dialogs.error(context,
                 title: 'Permissão negada.',
                 message:
-                    ' Esta função requer acesso de administrador para ser utilizada. Por favor, entre em contato com o administrador do sistema para obter permissão.');
+                    'Esta função requer acesso de administrador para ser utilizada.\n Por favor, entre em contato com o administrador do sistema para obter permissão.');
           }
         });
       } on ApiException catch (e) {
