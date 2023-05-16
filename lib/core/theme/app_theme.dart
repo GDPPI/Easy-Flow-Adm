@@ -51,19 +51,19 @@ final ThemeData appThemeData = ThemeData(
     ),
   ),
   inputDecorationTheme: InputDecorationTheme(
-    fillColor: Colors.white,
-    filled: true,
+    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
     border: OutlineInputBorder(
-      borderSide: BorderSide(
-        color: Color(0xff8B8B8B),
-        width: 2,
-      ),
+      borderRadius: BorderRadius.circular(8),
+      borderSide: const BorderSide(color: Color(0xFFD4D4D4)),
     ),
     hintStyle: TextStyle(
       fontFamily: "Poppins",
       fontSize: 12,
       fontWeight: FontWeight.w400,
       color: Color(0xff8B8B8B),
+    ),
+    errorStyle: const TextStyle(
+      fontFamily: 'Segoe_UI',
     ),
   ),
 );

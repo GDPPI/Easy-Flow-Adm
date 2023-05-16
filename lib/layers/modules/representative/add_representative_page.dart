@@ -1,7 +1,6 @@
 import 'package:easyflow/core/utils/validators_util.dart';
 import 'package:easyflow/layers/modules/representative/representative_controller.dart';
 import 'package:easyflow/layers/modules/representative/widgets/shift_button.dart';
-import 'package:easyflow/layers/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -65,10 +64,9 @@ class AddRepresentativePage extends GetView<RepresentativeController> {
                           children: [
                             SizedBox(
                               width: size.width * 0.3,
-                              child: TextFieldWidget(
-                                prefixIcon: Icon(Icons.badge_outlined),
-                                label: "Digite seu nome completo",
-                                hintText: "Nome completo",
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    label: Text("Nome completo")),
                                 controller: controller.nameTextController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
@@ -78,10 +76,9 @@ class AddRepresentativePage extends GetView<RepresentativeController> {
                             ),
                             SizedBox(
                               width: size.width * 0.3,
-                              child: TextFieldWidget(
-                                prefixIcon: Icon(Icons.email_outlined),
-                                label: "Digite seu email",
-                                hintText: "E-mail",
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(label: Text("E-mail")),
                                 controller: controller.emailTextController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
@@ -90,9 +87,9 @@ class AddRepresentativePage extends GetView<RepresentativeController> {
                             ),
                             SizedBox(
                               width: size.width * 0.3,
-                              child: TextFieldWidget(
-                                label: "Área",
-                                hintText: "Área",
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(label: Text("Área")),
                                 controller: controller.areaTextController,
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,

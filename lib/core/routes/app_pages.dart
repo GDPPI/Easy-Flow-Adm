@@ -23,7 +23,7 @@ import '../../layers/modules/horary/pages/horary_add_page.dart';
 part './app_routes.dart';
 
 abstract class AppPages {
-  static const initialRoute = Routes.INITIAL_PAGE;
+  static const initialRoute = Routes.LOGIN;
   static final pages = [
     GetPage(
       name: Routes.LOGIN,
