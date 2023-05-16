@@ -25,8 +25,17 @@ class LoginController {
                 login: loginTextController.text,
                 password: passwordTextController.text))
             .then((user) {
-          Get.put(UserService()).auth(user);
-          Navigator.of(context).pushReplacementNamed(Routes.HOME);
+          if (user.person.admin == true) {
+            Get.put(UserService()).auth(user);
+            Navigator.of(context).pushReplacementNamed(Routes.HOME);
+          } else {
+            Navigator.of(context).pop();
+            Dialogs.error(context,
+                    title: 'Permissão negada.',
+                    message:
+                        ' Esta função requer acesso de administrador para ser utilizada. Por favor, entre em contato com o administrador do sistema para obter permissão.')
+                .show();
+          }
         });
       } on ApiException catch (e) {
         Navigator.of(context).pop();
