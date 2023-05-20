@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 class TextFormInitialWidget extends StatelessWidget {
   final String text;
   final TextEditingController controller;
+  final void Function()? onPressed;
   const TextFormInitialWidget(
-      {super.key, required this.text, required this.controller});
+      {super.key,
+      required this.text,
+      required this.controller,
+      this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +56,7 @@ class TextFormInitialWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: onPressed,
                   child: Text(
                     "Adicionar",
                   ),

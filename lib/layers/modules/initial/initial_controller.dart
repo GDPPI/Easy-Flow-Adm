@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class InitialController extends GetxController {
+  PageController pageController = PageController();
   final controllerComunicado = TextEditingController();
   final controllerrepresentante = TextEditingController();
   final RxList<RepresentativesModel> _reprePesquisar =
@@ -32,7 +33,7 @@ class InitialController extends GetxController {
     update();
   }
 
-  List<RepresentativesModel> get  representatives {
+  List<RepresentativesModel> get representatives {
     return _reprePesquisar;
   }
 }
