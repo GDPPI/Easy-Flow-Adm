@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class HttpHeadersConfig {
   static Map<String, String> buildHeadersWithToken(String token) {
     Map<String, String> headers = {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json; charset=UTF-8',
       'authorization': "Bearer $token"
     };
 
@@ -15,7 +15,7 @@ class HttpHeadersConfig {
     final userService = Get.put(UserService());
 
     Map<String, String> headers = {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json; charset=UTF-8',
       'authorization':
           userService.logged ? "Bearer ${userService.userLogged.token}" : "",
     };
@@ -25,7 +25,7 @@ class HttpHeadersConfig {
 
   static Map<String, String> buildHeadersWithoutAuth() {
     Map<String, String> headers = {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json; charset=UTF-8',
     };
 
     return headers;

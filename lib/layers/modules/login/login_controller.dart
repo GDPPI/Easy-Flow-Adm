@@ -20,7 +20,7 @@ class LoginController {
     if (formKey.currentState!.validate()) {
       Dialogs.loading(context);
       try {
-        await _authRepository
+         await _authRepository
             .login(AuthRequestModel(
                 login: loginTextController.text,
                 password: passwordTextController.text))

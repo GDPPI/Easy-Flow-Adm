@@ -16,7 +16,7 @@ class PersonModel {
       id: map['id'],
       name: map['name'],
       email: map['email'],
-      admin: map['admin'],
+      admin: map['person_admin'],
     );
   }
 

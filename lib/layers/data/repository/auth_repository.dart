@@ -7,8 +7,8 @@ class AuthRepository {
 
   AuthRepository(this._authProvider);
 
-  Future<UserModel> login(AuthRequestModel authRequestModel) {
-    return _authProvider.login(authRequestModel);
+  Future<UserModel> login(AuthRequestModel authRequestModel) async {
+    return await _authProvider.login(authRequestModel);
   }
 
    

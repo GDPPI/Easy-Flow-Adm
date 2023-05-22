@@ -11,104 +11,82 @@ class InitialPage extends GetView<InitialController> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (p0, p1) {
-        return Scaffold(
-          body: SafeArea(
-            child: PageView(
-              controller: controller.pageController,
-              children: [
-                Container(
-                  alignment: Alignment.topLeft,
-                  height: p1.maxHeight,
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.only(top: 150),
-                          child: TextFormInitialWidget(
-                            text: "Comunicados",
-                            controller: controller.controllerComunicado,
-                            onPressed: () => controller.pageController.jumpToPage(1),
-                          ),
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                height: 300,
-                                width: p1.maxWidth,
-                                child: GridView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: 5,
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 1,
-                                    mainAxisExtent: 320,
-                                    mainAxisSpacing: 16,
-                                  ),
-                                  itemBuilder: (context, index) =>
-                                      CardAnnoumencementsWidget(),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        TextFormInitialWidget(
-                          text: "Representantes",
-                          controller: controller.controllerrepresentante,
-                          onPressed: () =>
-                              controller.pageController.jumpToPage(2),
-                        ),
-                        Obx(
-                          () => SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.only(top: 23),
-                                  height: 220,
-                                  width: p1.maxWidth,
-                                  child: GridView.builder(
-                                    itemBuilder: (context, index) =>
-                                        TileRepresentativeWidget(
-                                      representante:
-                                          controller.representatives[index],
-                                    ),
-                                    itemCount:
-                                        controller.representatives.length,
-                                    scrollDirection: Axis.horizontal,
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      mainAxisSpacing: 16,
-                                      crossAxisCount: 3,
-                                      mainAxisExtent: 320,
-                                      crossAxisSpacing: 10,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(bottom: 134),
-                        ),
-                      ],
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            flex: 2,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 32, bottom: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 32),
+                    child: TextFormInitialWidget(
+                      text: "Comunicados",
+                      controller: controller.controllerComunicado,
+                      onPressed: () => controller.pageController.jumpToPage(1),
                     ),
                   ),
-                ),
-                
-                AddRepresentativePage(),
-              ],
+                  Expanded(
+                    child: GridView.builder(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.only(left: 32, top: 16, right: 32),
+                      itemCount: 10,
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 260,
+                        mainAxisExtent: 320,
+                        mainAxisSpacing: 16,
+                        crossAxisSpacing: 16,
+                      ),
+                      itemBuilder: (context, index) =>
+                          CardAnnoumencementsWidget(),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        );
-      },
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 16, bottom: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 32,
+                    ),
+                    child: TextFormInitialWidget(
+                      text: "Representantes",
+                      controller: controller.controllerrepresentante,
+                      onPressed: () => showDialog(
+                          context: context,
+                          builder: (context) => AddRepresentativePage()),
+                    ),
+                  ),
+                  Expanded(
+                    child: GridView.builder(
+                      padding: EdgeInsets.only(left: 32, top: 16, right: 32),
+                      itemCount: controller.representatives.length,
+                      scrollDirection: Axis.horizontal,
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 70,
+                        mainAxisExtent: 320,
+                        mainAxisSpacing: 16,
+                      ),
+                      itemBuilder: (context, index) => TileRepresentativeWidget(
+                        representante: controller.representatives[index],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

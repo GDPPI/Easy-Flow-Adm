@@ -9,151 +9,112 @@ class AddRepresentativePage extends GetView<RepresentativeController> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
-    return Scaffold(
-      backgroundColor: Color(0xffF5F5F5),
-      body: SafeArea(
-        child: Container(
-          width: double.infinity,
-          height: size.height,
-          alignment: Alignment.center,
-          padding: const EdgeInsets.all(25),
-          child: SingleChildScrollView(
+    return Container(
+        width: 500,
+        height: 700,
+        color: Colors.white,
+        child: Form(
+          key: controller.formKey,
+          child: Padding(
+            padding: EdgeInsets.all(16),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                ElevatedButton(
-                  onPressed: controller.saveButtonClicked,
-                  child: Text(
-                    "Salvar",
-                    style: TextStyle(
-                      fontFamily: 'Segoe_UI',
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
-                    ),
+                Container(
+                  height: 160,
+                  width: 189,
+                  margin: EdgeInsets.only(
+                    top: 50,
+                    bottom: 35,
                   ),
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(170, 40),
-                    elevation: 0,
+                  child: Icon(Icons.add_a_photo_outlined),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.black12,
                   ),
                 ),
                 SizedBox(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        height: 160,
-                        width: 189,
-                        margin: EdgeInsets.only(
-                          top: 50,
-                          bottom: 35,
-                        ),
-                        child: Image.asset(
-                          "assets/images/add_a_photo.png",
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(10),
-                          color: Colors.white,
-                        ),
-                      ),
-                      Form(
-                        key: controller.formKey,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            SizedBox(
-                              width: size.width * 0.3,
-                              child: TextFormField(
-                                decoration: InputDecoration(
-                                    label: Text("Nome completo")),
-                                controller: controller.nameTextController,
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
-                                validator: (value) =>
-                                    Validators.isNotEmpty(value),
-                              ),
-                            ),
-                            SizedBox(
-                              width: size.width * 0.3,
-                              child: TextFormField(
-                                decoration:
-                                    InputDecoration(label: Text("E-mail")),
-                                controller: controller.emailTextController,
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
-                                validator: (value) => Validators.isEmail(value),
-                              ),
-                            ),
-                            SizedBox(
-                              width: size.width * 0.3,
-                              child: TextFormField(
-                                decoration:
-                                    InputDecoration(label: Text("Área")),
-                                controller: controller.areaTextController,
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
-                                validator: (value) =>
-                                    Validators.isNotEmpty(value),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                  height: 16,
                 ),
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  margin: EdgeInsets.symmetric(
-                    horizontal: size.width * 0.01,
-                  ),
-                  alignment: Alignment.centerLeft,
-                  width: size.width,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Dias disponível",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.left,
+                TextFormField(
+                  decoration: InputDecoration(label: Text("Nome completo")),
+                  controller: controller.nameTextController,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => Validators.isNotEmpty(value),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(label: Text("E-mail")),
+                  controller: controller.emailTextController,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => Validators.isEmail(value),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(label: Text("Área")),
+                  controller: controller.areaTextController,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) => Validators.isNotEmpty(value),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Dias disponível",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
                       ),
-                      Obx(
-                        () => Row(
-                          children: [
-                            ShiftButton(
-                                shiftText: "Manhã",
-                                isSelected:
-                                    controller.isMorningShiftSelected.value),
-                            ShiftButton(
-                                shiftText: "Tarde",
-                                isSelected:
-                                    controller.isAfternoonShiftSelected.value),
-                            ShiftButton(
-                                shiftText: "Noite",
-                                isSelected:
-                                    controller.isNightShiftSelected.value),
-                          ],
+                      textAlign: TextAlign.left,
+                    ),
+                    Obx(
+                      () => Row(
+                        children: [
+                          ShiftButton(
+                              shiftText: "Manhã",
+                              isSelected:
+                                  controller.isMorningShiftSelected.value),
+                          ShiftButton(
+                              shiftText: "Tarde",
+                              isSelected:
+                                  controller.isAfternoonShiftSelected.value),
+                          ShiftButton(
+                              shiftText: "Noite",
+                              isSelected:
+                                  controller.isNightShiftSelected.value),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        onPressed: controller.saveButtonClicked,
+                        child: Text(
+                          "Salvar",
+                          style: TextStyle(
+                            fontFamily: 'Segoe_UI',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
