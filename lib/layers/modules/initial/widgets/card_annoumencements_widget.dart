@@ -1,6 +1,5 @@
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
-import 'package:image_network/image_network.dart';
 
 class CardAnnoumencementsWidget extends StatelessWidget {
   const CardAnnoumencementsWidget({super.key});
@@ -24,14 +23,13 @@ class CardAnnoumencementsWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: ImageNetwork(
-                  image:
-                      'https://firebasestorage.googleapis.com/v0/b/easyflow-55ea5.appspot.com/o/teste%2Fnoticias.png?alt=media&token=7a167b7b-ff57-4a5a-a176-e95b898b5a76',
-                  height: 150,
-                  width: 318,
-                  borderRadius: BorderRadius.circular(8),
-                  fitAndroidIos: BoxFit.cover,
-                  fitWeb: BoxFitWeb.cover,
+                child: FadeInImage(
+                  placeholder: const AssetImage(
+                    "assets/images/collab_bro_image.png",
+                  ),
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      'https://firebasestorage.googleapis.com/v0/b/easyflow-55ea5.appspot.com/o/teste%2Fnoticias.png?alt=media&token=7a167b7b-ff57-4a5a-a176-e95b898b5a76'),
                 ),
               ),
             ),
