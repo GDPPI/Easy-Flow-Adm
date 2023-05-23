@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 void main() async {
     WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    GetMaterialApp(
+    GetMaterialApp(title: 'Easy flow ADM',
       scrollBehavior: MyCustomScrollBehavior(),
       debugShowCheckedModeBanner: false,
       initialRoute: AppPages.initialRoute,

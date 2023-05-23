@@ -3,7 +3,6 @@ import 'package:easyflow/core/utils/validators_util.dart';
 import 'package:easyflow/layers/widgets/text_field_secure_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_network/image_network.dart';
 import 'login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
@@ -70,16 +69,13 @@ class LoginPage extends GetView<LoginController> {
                         height: 70,
                       ),
                     if (!isMobile)
-                      ImageNetwork(
-                        image:
-                            'https://firebasestorage.googleapis.com/v0/b/easyflow-55ea5.appspot.com/o/teste%2FCollab-bro%201.png?alt=media&token=e9b3eee1-f72b-4c76-8e78-a215c16b1600',
-                        imageCache: AssetImage(
-                          'assets/images/collab_bro_image.png',
-                        ),
-                        fitWeb: BoxFitWeb.contain,
-                        fitAndroidIos: BoxFit.contain,
-                        width: 500,
+                      Container(
                         height: 500,
+                        width: 500,
+                        child: Image.asset(
+                          "assets/images/collab_bro_image.png",
+                          fit: BoxFit.contain,
+                        ),
                       ),
                   ],
                 ),
@@ -99,7 +95,7 @@ class LoginPage extends GetView<LoginController> {
                               "Login",
                               style: TextStyle(
                                   fontFamily: 'Segoe_UI',
-                                  fontSize: 32,
+                                  fontSize: 40,
                                   fontWeight: FontWeight.w700),
                             ),
                           SizedBox(

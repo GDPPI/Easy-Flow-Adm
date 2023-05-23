@@ -41,9 +41,7 @@ dependencies:
   intl: ^0.18.0
   expandable_text: ^2.3.0
   pagination_flutter: ^0.0.8
-  easy_sidemenu: ^0.4.1
-  image_network: ^2.5.2
- 
+  easy_sidemenu: ^0.4.1 
 
 dev_dependencies:
   flutter_test:
